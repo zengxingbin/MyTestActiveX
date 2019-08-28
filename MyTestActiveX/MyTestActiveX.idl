@@ -1,0 +1,52 @@
+// MyTestActiveX.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (MyTestActiveX.tlb) that will become a resource in
+// MyTestActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(bd9b6991-e0f8-4a12-8fe2-624906a35bcc), version(1.0),
+  control ]
+library MyTestActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CMyTestActiveXCtrl
+	[ 
+		uuid(7ca273da-32bb-458a-978e-17a674d8b9cd)
+	]
+	dispinterface _DMyTestActiveX
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(1)] LONG AddFunc(LONG num1, LONG num2);
+	};
+
+	//  Event dispatch interface for CMyTestActiveXCtrl
+
+	[ 
+		uuid(a1711394-9c97-4208-aa34-4c7daaa8fddf)
+	]
+	dispinterface _DMyTestActiveXEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+	};
+
+	//  Class information for CMyTestActiveXCtrl
+	[
+		uuid(2f4202f3-b529-44de-aef6-d5b81e3ed9ed)
+	]
+	coclass MyTestActiveX
+	{
+		[default] dispinterface _DMyTestActiveX;
+		[default, source] dispinterface _DMyTestActiveXEvents;
+	};
+
+};
